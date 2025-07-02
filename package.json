@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  },
+  "name": "tools-final-project",
+  "version": "1.0.0",
+  "description": "Ahmed - admin  Samiul - student Muntasir - teachers  ? - Principal/Chairman",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmed-at-github/Tools-final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmed-at-github/Tools-final-project/issues"
+  },
+  "homepage": "https://github.com/ahmed-at-github/Tools-final-project#readme"
+}
