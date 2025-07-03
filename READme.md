@@ -1,8 +1,10 @@
-## Tools final project 
+## Tools final project
 
-Ahmed - admin 
-Samiul - student
-Muntasir - teachers 
-? - Principal/Chairman  
+Ahmed - admin. <br>
+Samiul - student. <br> 
+Muntasir - teachers. <br> 
+? - Principal/Chairman. <br> 
+
+# To run code
 
 npm run tailwind (to run tailwind )
