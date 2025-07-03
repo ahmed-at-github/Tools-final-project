@@ -1,9 +1,9 @@
 ## Tools final project
 
-Ahmed - admin  
-Samiul - student  
-Muntasir - teachers
-? - Principal/Chairman
+Ahmed - admin.   
+Samiul - student.  
+Muntasir - teachers.  
+? - Principal/Chairman.  
 
 # To run code
 
