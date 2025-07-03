@@ -7,4 +7,4 @@ Muntasir - teachers. <br>
 
 # To run code
 
-npm run tailwind (to run tailwind )
+npm run tailwind (to run tailwind, daisy )
