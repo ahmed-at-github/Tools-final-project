@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - Respond to Complaints</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-[#e1f2ff] shadow-md hidden md:block">
+      <div class="p-4 border-b border-gray-200">
+        <div class="flex items-center gap-2 p-3 bg-blue-100 rounded">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+            alt="Professional Male Teacher"
+            class="w-10 h-10 object-contain"
+          />
+          <span class="text-gray-700 font-medium">${teacherid}</span>
+        </div>
+        <h1 class="text-2xl font-medium ">Teacher Dashboard</h1>
+      </div>
+      <nav class="p-4 space-y-2">
+        <a href="index.html" class="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-200 rounded">📄 View Complaints</a>
+        <a href="respond.html" class="block px-4 py-2 text-gray-600 rounded bg-blue-200 hover:bg-blue-300">💬 Respond to Complaints</a>
+        <a href="history.html" class="block px-4 py-2 text-gray-600 hover:bg-blue-200 rounded">📜 Complaint History</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-3 bg-[#e6edf3]">
+      <div class="p-2 pb-6 rounded bg-[#fefefd]">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-4 border-b">
+          <h1 class="text-2xl font-semibold mb-4 p-4">💬 Respond to Complaints</h1>
+
+          <!-- Hamburger Dropdown -->
+          <div class="relative inline-block text-left">
+            <button id="dropdownButton" class="p-2 rounded-2xl bg-gray-200 focus:outline-none">
+              <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16M4 12h16M11 18h8"/>
+              </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg z-10">
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Settings</a>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complaint Response Table -->
+        <div class="p-2 pb-60 rounded border bg-[#f7faff]">
+          <div class="p-0 m-2 rounded shadow bg-[#f3f4f6]">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-[#e7e7ea]">
+                <tr>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Complaint ID</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Section</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Department</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Complaint</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                </tr>
+              </thead>
+              <tbody class="bg-[#f2f5f6] divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4">001</td>
+                  <td class="px-6 py-4">3FM</td>
+                  <td class="px-6 py-4">CSE</td>
+                  <td class="px-6 py-4">Issue with course materials</td>
+                  <td class="px-6 py-4">2025-08-03</td>
+                  <td class="px-6 py-4 space-x-2">
+                    <button class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 reply-btn" data-id="001">Reply</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">002</td>
+                  <td class="px-6 py-4">7AM</td>
+                  <td class="px-6 py-4">CSE</td>
+                  <td class="px-6 py-4">Internet not working in lab</td>
+                  <td class="px-6 py-4">2025-08-02</td>
+                  <td class="px-6 py-4 space-x-2">
+                    <button class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 reply-btn" data-id="002">Reply</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Reply Modal -->
+  <div id="replyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 w-96 shadow-lg">
+      <h2 class="text-xl font-semibold mb-4">Reply to Complaint <span id="complaintId" class="text-blue-600"></span></h2>
+      <textarea id="replyText" rows="5" class="w-full border border-gray-300 rounded p-2 mb-4" placeholder="Type your reply here..."></textarea>
+      <div class="flex justify-end space-x-3">
+        <button id="closeModal" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+        <button id="sendReply" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Dropdown menu toggle
+    const dropdownBtn = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    dropdownBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("hidden");
+    });
+    document.addEventListener("click", (event) => {
+      if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
+
+    // Reply modal logic
+    const replyModal = document.getElementById('replyModal');
+    const replyButtons = document.querySelectorAll('.reply-btn');
+    const closeModal = document.getElementById('closeModal');
+    const sendReply = document.getElementById('sendReply');
+    const replyText = document.getElementById('replyText');
+    const complaintIdSpan = document.getElementById('complaintId');
+    let currentComplaintId = null;
+
+    replyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        currentComplaintId = button.getAttribute('data-id');
+        complaintIdSpan.textContent = currentComplaintId;
+        replyText.value = '';
+        replyModal.classList.remove('hidden');
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      replyModal.classList.add('hidden');
+    });
+
+    sendReply.addEventListener('click', () => {
+      const reply = replyText.value.trim();
+      if (reply === '') {
+        alert('Please enter a reply message.');
+        return;
+      }
+      // For now just show alert. You can replace this with actual submission logic.
+      alert(`Reply sent for Complaint ID ${currentComplaintId}: ${reply}`);
+      replyModal.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
