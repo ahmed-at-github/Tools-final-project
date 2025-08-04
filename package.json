@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
-    "daisyui": "^5.0.43",
     "tailwindcss": "^4.1.11"
   },
   "name": "tools-final-project",
@@ -21,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ahmed-at-github/Tools-final-project/issues"
   },
-  "homepage": "https://github.com/ahmed-at-github/Tools-final-project#readme"
+  "homepage": "https://github.com/ahmed-at-github/Tools-final-project#readme",
+  "devDependencies": {
+    "daisyui": "^5.0.50"
+  }
 }

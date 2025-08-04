@@ -6,8 +6,8 @@
 
 @theme {
     --color-lightest: #DDE6ED;
-    --color-light: #9DB2BF;
-    --color-dark: #526D82;
+    --color-light-bg: #9DB2BF;
+    --color-dark-bg: #526D82;
     --color-darkest: #27374D;
 
     --font-roboto:  font-family: "Roboto", sans-serif;
