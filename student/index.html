@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom styles for the Inter font */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Custom scrollbar for the content area */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #e0f2fe;
+        /* Lightest blue from your palette */
+        border-radius: 10px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #90cdf4;
+        /* A slightly darker blue for the thumb */
+        border-radius: 10px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #63b3ed;
+        /* Even darker on hover */
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F0F8FF] min-h-screen flex flex-col">
+    <!-- Main container for the dashboard -->
+    <div class="flex flex-1 overflow-hidden">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-[#E0F2FE] p-4 flex flex-col shadow-lg rounded-r-lg">
+        <div
+          class="text-2xl font-bold text-gray-800 mb-8 rounded-lg p-2 bg-[#D1EEFF]"
+        >
+          Logo
+        </div>
+        <!-- Links of pages -->
+        <nav class="flex-1 space-y-2">
+          <a
+            href="#"
+            class="block p-3 text-gray-700 hover:bg-[#BEE3F8] rounded-lg transition-colors duration-200 ease-in-out font-medium"
+            >Dashboard</a
+          >
+          <a
+            href="teachers.html"
+            class="block p-3 text-gray-700 hover:bg-[#BEE3F8] rounded-lg transition-colors duration-200 ease-in-out font-medium"
+            >Teachers</a
+          >
+          <a
+            href="lab.html"
+            class="block p-3 text-gray-700 hover:bg-[#BEE3F8] rounded-lg transition-colors duration-200 ease-in-out font-medium"
+            >Lab</a
+          >
+          <a
+            href="course.html"
+            class="block p-3 text-gray-700 hover:bg-[#BEE3F8] rounded-lg transition-colors duration-200 ease-in-out font-medium"
+            >Course</a
+          >
+          <a
+            href="academic.html"
+            class="block p-3 text-gray-700 hover:bg-[#BEE3F8] rounded-lg transition-colors duration-200 ease-in-out font-medium"
+            >Academic</a
+          >
+        </nav>
+      </aside>
+
+      <!-- Main content area -->
+      <main
+        class="flex-1 flex flex-col p-6 bg-white rounded-l-lg shadow-xl m-4"
+      >
+        <!-- Header -->
+        <header
+          class="flex justify-between items-center pb-4 border-b border-gray-200 mb-6"
+        >
+          <h1 class="text-3xl font-extrabold text-gray-900">Dashboard</h1>
+          <div class="relative">
+            <button
+              id="menuButton"
+              class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 ease-in-out"
+            >
+              <svg
+                class="w-8 h-8 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+            <!-- Dropdown Menu -->
+            <div
+              id="dropdownMenu"
+              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 z-10 hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg"
+                >Dashboard</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg"
+                >Settings</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <!-- Content section for "Previous messages" -->
+        <section
+          class="flex-1 bg-[#F5FBFF] p-6 rounded-lg border border-gray-200 overflow-y-auto custom-scrollbar"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Previous messages
+          </h2>
+          <!-- Placeholder for messages content -->
+          <div class="space-y-4">
+            <div
+              class="bg-white p-4 rounded-lg shadow-sm border border-gray-100"
+            >
+              <p class="text-gray-700">
+                This is a sample message content. It can be quite long and will
+                demonstrate scrolling.
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Received: 2025-07-31 10:00 AM
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Get the menu button and dropdown menu elements
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      // Toggle the dropdown menu visibility
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("hidden");
+      });
+
+      // Close the dropdown menu if clicked outside
+      window.addEventListener("click", (event) => {
+        if (
+          !menuButton.contains(event.target) &&
+          !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
