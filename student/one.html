@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+    <p id="msg" class="text-gray-700">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    </p>
+    <p id="stat" class="text-sm text-gray-500 mt-2">
 
-<body>
-
-    <input id="btn" type="text">
-    <button  onclick="send()">send</button>
-    <script>
-        const text = document.getElementById("btn").value; 
-        const obj = {
-            ahmed: "aihuh"
-        }
-
-      function  send() {
-        const  body = {name: "ahmed" }
-        fetch('http://localhost:1857/', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(body)
-        })
-            .then(res => {
-                console.log("done");
-                
-                res.json()}); }
-    </script>
-</body>
-
-</html>
+    </p>
