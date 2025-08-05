@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-[#e1f2ff] shadow-md hidden md:block">
+      <div class="p-4 border-b border-gray-200">
+        <div class="flex items-center gap-2 p-3 bg-blue-100 rounded">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+            alt="Professional Male Teacher"
+            class="w-10 h-10 object-contain"
+          />
+          <span class="text-gray-700 font-medium">${teacherid}</span>
+        </div>
+        <h1 class="text-2xl font-medium ">Teacher Dashboard</h1>
+      </div>
+      <nav class="p-4 space-y-2">
+        <a href="index.html" class="block px-4 py-2 text-blue-600 hover:bg-blue-200 rounded">📄 View Complaints</a>
+        <a href="respond.html" class="block px-4 py-2 text-gray-600 hover:bg-blue-200 rounded">💬 Respond to Complaints</a>
+        <a href="history.html" class="block px-4 py-2 text-gray-600 font-semibold bg-blue-200 rounded hover:bg-blue-300">📜 Complaint History</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-3 bg-[#e6edf3]">
+      <div class="p-2 pb-6 rounded bg-[#fefefd]">
+        <div class="flex items-center justify-between mb-4 border-b">
+          <h1 class="text-2xl font-semibold mb-4 p-4">📜 Complaint History</h1>
+
+          <!-- Hamburger Dropdown -->
+          <div class="relative inline-block text-left">
+            <button id="dropdownButton" class="p-2 rounded-2xl bg-gray-200 focus:outline-none">
+              <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16M4 12h16M11 18h8"/>
+              </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg z-10">
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Settings</a>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- History Table -->
+        <div class="p-2 pb-60 rounded border bg-[#f7faff]">
+          <div class="p-0 m-2 rounded shadow bg-[#f3f4f6]">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-[#e7e7ea]">
+                <tr>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Complaint ID</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Section</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Department</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Complaint</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                </tr>
+              </thead>
+              <tbody class="bg-[#f2f5f6] divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4">CMP001</td>
+                  <td class="px-6 py-4">3FM</td>
+                  <td class="px-6 py-4">CSE</td>
+                  <td class="px-6 py-4">Broken projector in classroom</td>
+                  <td class="px-6 py-4">2025-07-30</td>
+                  <td class="px-6 py-4 space-x-2 flex font-semibold">  
+                    <a href="respond.html" class="m-2 px-3 py-2 bg-blue-500 text-white  rounded hover:bg-blue-600">Respond</a>
+                    <button class="px-3 py-1 m-2 bg-red-500 text-white rounded hover:bg-red-600">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">CMP002</td>
+                  <td class="px-6 py-4">7AM</td>
+                  <td class="px-6 py-4">CSE</td>
+                  <td class="px-6 py-4">No chalks available</td>
+                  <td class="px-6 py-4">2025-07-28</td>
+                  <td class="px-6 py-4 space-x-2 flex font-semibold">  
+                    <a href="respond.html" class="m-2 px-3 py-2 bg-blue-500 text-white  rounded hover:bg-blue-600">Respond</a>
+                    <button class="px-3 py-1 m-2 bg-red-500 text-white rounded hover:bg-red-600">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Dropdown Toggle Script -->
+  <script>
+    const dropdownBtn = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    dropdownBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
+  </script>
+</body>
+</html>
