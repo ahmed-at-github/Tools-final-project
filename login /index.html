@@ -69,11 +69,17 @@
           }
         } else {
           // Show error message
+           document.getElementById('userId').value = "";
+          document.getElementById('password').value = "";
+
           errorMessage.textContent = data.message || 'Invalid ID or Password.';
           errorMessage.style.display = 'block';
         }
       } catch (err) {
         console.error('Fetch error:', err);
+         document.getElementById('userId').value = "";
+          document.getElementById('password').value = "";
+          
         errorMessage.textContent = 'Server error. Please try again later.';
         errorMessage.style.display = 'block';
       }
